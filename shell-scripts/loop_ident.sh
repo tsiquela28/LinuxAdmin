@@ -4,17 +4,24 @@ echo -n "Digite o nome de usuário: "
 read USUARIO 
 
 
-if [ "$USER" != "$USUARIO" ]; then
-        echo "Não está executando como $USUARIO"
-else 
-        echo "Está rodando como $USUARIO"
-fi     
-
 
 if [ ! -d /home/siquela/copia ]; then 
 	mkdir /home/siquela/copia
 fi
 
+
 for VAR in $(seq 10 25); do
+       if [ -d "/home/siquela/copia/dir-$VAR" ]; then 
+	       echo "Diretório já existe"
+
+	   if [ "$USER" = "root" ] ; then
+		   echo "Rodando como root"
+		   break
+	   fi	   
+
+      else 
        mkdir /home/siquela/copia/dir-$VAR
+      fi
 done
+
+echo "Fim do for"

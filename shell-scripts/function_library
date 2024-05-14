@@ -1,0 +1,7 @@
+funcao1() {
+	echo "Teste, chamando função global, ARGUMENTO $1"
+}
+
+funcao2() {
+	echo "Teste, chamando função global, ARGUMENTO $1"
+}
